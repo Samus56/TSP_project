@@ -5,7 +5,7 @@ WORKDIR home/my_c_app
 
 COPY main.c .
 
-RUN ["gcc","main.c","-o","compiled"]
+RUN ["gcc","main.c","-o","compiled","-lm"]
 
 #stage 2
 FROM ubuntu
