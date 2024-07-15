@@ -1,7 +1,7 @@
 #stage 1
 FROM gcc AS compile_stage
 
-WORKDIR home/my_c_app
+WORKDIR home/progetto
 
 COPY main.c .
 
