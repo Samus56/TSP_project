@@ -99,7 +99,6 @@ Solution simulatedAnnealing(Solution *first_Solution,Graph *graph,int costMatrix
     Solution currentSolution;
     bestSolution=*first_Solution;
     currentSolution=*first_Solution;
-    int controll_costraints=0;
     double temperature = MAX_TEMPERATURE;
     while (temperature > MIN_TEMPERATURE) {
         Solution newSolution=currentSolution;
