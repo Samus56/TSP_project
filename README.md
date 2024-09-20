@@ -5,7 +5,7 @@ problema del commesso viaggiatore (TSP). Il nome nasce dalla sua più tipica rap
 Nell'applicazione sono stati usati 2 algoritmi, il Nearest Neighbour e il Simulated Annealing.
 
 ## Installazione
-Da dove è statto scaricato il progetto:
+Da dove è stato scaricato il progetto:
 ```
 cd progetto
 make install
