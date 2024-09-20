@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include "/mnt/c/Users/Utente/prova.dir/Ingegneria/progetto/unity/unity.h"
-#include "/mnt/c/Users/Utente/prova.dir/Ingegneria/progetto/src/function.h"
+#include "../unity/unity.h"
+#include "../src/function.h"
 
 // Funzione di configurazione eseguita prima di ogni test
 void setUp(void) {

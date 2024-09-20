@@ -1,5 +1,5 @@
-#include "/mnt/c/Users/Utente/prova.dir/Ingegneria/progetto/unity/unity.h"
-#include "/mnt/c/Users/Utente/prova.dir/Ingegneria/progetto/src/function.h"
+#include "../unity/unity.h"
+#include "../src/function.h"
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
