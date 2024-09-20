@@ -1,0 +1,42 @@
+name: CICD
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Make Test
+      run: 
+        make unit_test
+        make integration_test
+        make property_test
+        ./testunit
+        ./testintegration
+        ./testproperty
+    - name: Install the program
+      run: 
+        make install
+        ./main
+    - name: Docker login
+      uses: docker/login-action@v3
+      with:
+        username: samuele229
+        password: ${{ secrets.DOCKERHUB_PASSWORD}}
+
+    - name: Docker build e push
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        file: ./Dockerfile
+        push: true
+        tags: samuele229/isa:latest
+
+    
