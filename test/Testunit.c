@@ -36,9 +36,9 @@ void tearDown(void) {
 }
 
 void test_calculateCost(void) {
-    int num_nodes=3;
+    int num_nodes=N;
     int **graph = allocateMatrix(N);
-    int initial_graph[3][3] = {{0, 10, 15}, {10, 0, 35}, {15, 35, 0}};
+    int initial_graph[N][N] = {{0, 10, 15}, {10, 0, 35}, {15, 35, 0}};
     for (int i = 0; i < num_nodes; i++) {
         for (int j = 0; j < num_nodes; j++) {
             graph[i][j] = initial_graph[i][j];
@@ -53,7 +53,7 @@ void test_calculateCost(void) {
 }
 
 void test_createGraph(void) {
-    int num_nodes = 3;
+    int num_nodes = N;
     Graph graph = createGraph(num_nodes);
 
     TEST_ASSERT_EQUAL_INT(num_nodes, graph.num_nodes);
@@ -64,31 +64,31 @@ void test_createGraph(void) {
 }
 
 void test_findNearestNeighbor(void) {
-    Graph graph = createGraph(3);
+    Graph graph = createGraph(N);
     int visited[N] = {1, 0, 0};  // Supponiamo di aver visitato la prima città
-    int **distanceMatrix = allocateMatrix(3);
+    int **distanceMatrix = allocateMatrix(N);
     
     // Inizializzazione della matrice di test
-    int initial_distanceMatrix[3][3] = {{0, 10, 15}, {10, 0, 35}, {15, 35, 0}};
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
+    int initial_distanceMatrix[N][N] = {{0, 10, 15}, {10, 0, 35}, {15, 35, 0}};
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
             distanceMatrix[i][j] = initial_distanceMatrix[i][j];
         }
     }
 
     int nearestCity = findNearestNeighbor(&graph, 0, visited, (int **)distanceMatrix);
     TEST_ASSERT_EQUAL_INT(1, nearestCity);
-    freeMatrix(distanceMatrix, 3);
+    freeMatrix(distanceMatrix, N);
 }
 
 void test_tspNearestNeighbor(void) {
-    Graph graph = createGraph(3);
-    int **distanceMatrix = allocateMatrix(3);
+    Graph graph = createGraph(N);
+    int **distanceMatrix = allocateMatrix(N);
 
     // Inizializzazione della matrice di test
-    int initial_distanceMatrix[3][3] = {{0, 10, 15}, {10, 0, 35}, {15, 35, 0}};
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
+    int initial_distanceMatrix[N][N] = {{0, 10, 15}, {10, 0, 35}, {15, 35, 0}};
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
             distanceMatrix[i][j] = initial_distanceMatrix[i][j];
         }
     }
@@ -102,14 +102,14 @@ void test_tspNearestNeighbor(void) {
     TEST_ASSERT_EQUAL_INT(2, solution.solution[2]);
 
     free(solution.solution);
-    freeMatrix(distanceMatrix, 3);
+    freeMatrix(distanceMatrix, N);
 }
 void test_simulatedAnnealing(void) {
-    int num_nodes = 3;
+    int num_nodes = N;
     int **distanceMatrix = allocateMatrix(num_nodes);
 
     // Inizializzazione della matrice di distanza
-    int initial_distanceMatrix[3][3] = {{0, 10, 15}, {10, 0, 35}, {15, 35, 0}};
+    int initial_distanceMatrix[N][N] = {{0, 10, 15}, {10, 0, 35}, {15, 35, 0}};
     for (int i = 0; i < num_nodes; i++) {
         for (int j = 0; j < num_nodes; j++) {
             distanceMatrix[i][j] = initial_distanceMatrix[i][j];
