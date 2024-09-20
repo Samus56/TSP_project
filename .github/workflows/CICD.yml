@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Make Test
-      run: 
+      run: |
         make unit_test
         make integration_test
         make property_test
@@ -22,7 +22,7 @@ jobs:
         ./testintegration
         ./testproperty
     - name: Install the program
-      run: 
+      run: |
         make install
         ./main
     - name: Docker login
