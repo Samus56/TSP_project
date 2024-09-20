@@ -23,6 +23,7 @@ int calculateCost(int **graph, int *tour, int num_nodes);
 Graph createGraph(int num_nodes);
 int findNearestNeighbor(Graph *graph, int currentCity, int *visited, int **distanceMatrix);
 Solution tspNearestNeighbor(Graph *graph, int **distanceMatrix);
+void swapCities(int *tour, int i, int j);
 Solution simulatedAnnealing(Solution *first_Solution, Graph *graph, int **costMatrix);
 void freeGraph(Graph *graph);
 void freeSolution(Solution *solution);
