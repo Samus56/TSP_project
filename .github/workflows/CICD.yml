@@ -37,6 +37,6 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: samuele229/isa:latest
+        tags: samuele229/tsp_project:latest
 
     
