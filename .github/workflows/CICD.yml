@@ -21,6 +21,9 @@ jobs:
         ./testunit
         ./testintegration
         ./testproperty
+    - name: Test coverage
+      run: |
+        gcov function.c
     - name: Install the program
       run: |
         make install
