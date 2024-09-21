@@ -21,6 +21,7 @@ jobs:
         ./testunit
         ./testintegration
         ./testproperty
+        find . -name "*.gcno" -o -name "*.gcda"
         gcov src/function.c
     - name: Install the program
       run: |
