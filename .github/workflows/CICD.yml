@@ -21,8 +21,7 @@ jobs:
         ./testunit
         ./testintegration
         ./testproperty
-        find . -name "*.gcno" -o -name "*.gcda"
-        gcov src/function.c
+        gcov testunit-function.gcno testproperty-function.gcno testintegration-function.gcno
     - name: Install the program
       run: |
         make install
