@@ -13,6 +13,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Lint with clang_tidy
+      run: |
+        clang-tidy src/function.c -checks='clang-analyzer-*' -- -std=c99
+        clang-tidy src/main.c -checks='clang-analyzer-*' -- -std=c99
+        clang-tidy test/Testunit.c -checks='clang-analyzer-*' -- -std=c99
+        clang-tidy test/Testintegration.c -checks='clang-analyzer-*' -- -std=c99
+        clang-tidy test/Testproperty.c -checks='clang-analyzer-*' -- -std=c99                                                                                                                          
+
     - name: Make Test
       run: |
         make unit_test
@@ -21,6 +29,8 @@ jobs:
         ./testunit
         ./testintegration
         ./testproperty
+    - name: Test coverage
+      run: |
         gcov testunit-function.gcno testproperty-function.gcno testintegration-function.gcno
     - name: Install the program
       run: |
